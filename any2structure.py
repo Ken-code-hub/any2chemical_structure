@@ -7,6 +7,8 @@ from google.genai import types
 from PIL import Image
 from dotenv import load_dotenv
 
+#injection
+
 class ChemicalStructureGenerator:
     """化合物の構造式を生成するクラス"""
     def __init__(self):
