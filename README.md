@@ -1,8 +1,8 @@
-# 🧪 any2structure_chemistry ⚛️
+# 🧪 any2chemical_structure ⚛️
 
 ## 🌟 概要
 
-**any2structure_chemistry** は、化学の世界をもっと身近にするためのツールです！🧪
+**any2chemical_structure** は、化学の世界をもっと身近にするためのツールです！🧪
 
 化合物の **名前**、**SMILES文字列**、さらには **画像** から、美しい化学構造式を **瞬時に生成** します。
 
@@ -36,8 +36,8 @@ PubChemや最新のGemini API、そして強力なRDKitライブラリを活用�
 
 1.  **リポジトリをクローン:** 
     ```bash
-    git clone https://github.com/Ken-code-hub/any2structure_chemistry.git
-    cd any2structure_chemistry
+    git clone https://github.com/Ken-code-hub/any2chemical_structure.git
+    cd any2chemical_structure
     ```
 2.  **仮想環境の作成と有効化:**
     ```bash
