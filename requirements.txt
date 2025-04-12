@@ -1,0 +1,6 @@
+pubchempy>=1.0.4
+rdkit>=2024.9.5
+google-genai>=1.5.0
+Pillow>=11.1.0
+python-dotenv>=1.1.0
+flet>=0.27.6
