@@ -33,7 +33,7 @@ class ChemicalStructureGenerator:
             client = genai.Client(api_key=self.genai_api_key)
             response = client.models.generate_content(
                 model="gemini-2.0-flash",
-                contents=[f"Generate a SMILES string for the compound:{compound_name}. Return only the SMILES string. Do not include any other text. If the compound is not found, return 'not found'."],
+                contents=[f"Generate a SMILES string for the compound:{compound_name}. Return only the SMILES string. If the compound is polymer, return only the SMILES of its monomer. Do not include any other text. If the compound is not found, return 'not found'."],
                 config=types.GenerateContentConfig(
                     temperature=0.1,
                     max_output_tokens=100,
@@ -54,7 +54,9 @@ class ChemicalStructureGenerator:
         try:
             mol = Chem.MolFromSmiles(str(smiles))
             if mol is None:
-                raise ValueError("SMILESから分子を生成できませんでした。")
+                mol = Chem.MolFromSmiles(str(smiles), sanitize=False)
+                if mol is None:
+                    raise ValueError("SMILESから分子を生成できませんでした。")
 
             if img_path is None:
                 # デフォルトのパス設定（Fletアプリから呼ばれる場合はパスが指定される想定）

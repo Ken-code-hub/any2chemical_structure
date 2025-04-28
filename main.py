@@ -27,7 +27,7 @@ def main(page: ft.Page):
         value="name", # 初期値
     )
 
-    compound_input = ft.TextField(label="化合物名 または SMILES", expand=True)
+    compound_input = ft.TextField(label="化合物名", expand=True)
     image_path_input = ft.TextField(label="画像ファイルのパス", visible=False, expand=True) # 初期状態では非表示
     pick_files_dialog = ft.FilePicker(on_result=lambda e: pick_files_result(e))
     page.overlay.append(pick_files_dialog) # FilePickerをページに追加
