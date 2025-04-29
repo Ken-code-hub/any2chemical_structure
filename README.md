@@ -18,6 +18,8 @@ PubChemや最新のGemini API、そして強力なRDKitライブラリを活用�
     *   手書きや既存の構造式画像からSMILESを抽出し、構造式を再生成 ([`ChemicalStructureGenerator.generate_smiles_from_image`](any2structure.py)) します。（⚠️ 現在、精度は不安定です）
 *   **💾 GUI表示 & ファイル保存:**
     *   生成された構造式はアプリ画面に表示され、同時に画像ファイルとして保存 ([`ChemicalStructureGenerator.generate_structure_image`](any2structure.py)) されるため、レポート作成などにも便利です。
+*   **高分子への対応:**
+    *   高分子を入力するとその高分子を構成する最も一般的なモノマーを返します。複数のモノマーからなる高分子への対応は現在確認できていません。
 
 ## 💻 必要な環境
 
@@ -94,4 +96,4 @@ PubChemや最新のGemini API、そして強力なRDKitライブラリを活用�
 
 ## 📄 ライセンス
 
-[LICENSE](LICENSE) (BSD 3-Clause License)
+[LICENSE](LICENSE) (MIT-License)

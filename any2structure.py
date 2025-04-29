@@ -100,7 +100,7 @@ class ChemicalStructureGenerator:
             client = genai.Client(api_key=self.genai_api_key)
             response = client.models.generate_content(
                 model="gemini-2.0-flash",
-                contents=[img, "Generate a SMILES string from the image of the compound. Return only the SMILES string. Do not include any other text. If the compound is not found, return 'not found'."],
+                contents=[img, "Generate a SMILES string from the image of the compound. Return only the SMILES string. If the compound is polymer, return only the SMILES of its monomer. Do not include any other text. If the compound is not found, return 'not found'."],
                 config=types.GenerateContentConfig(
                     temperature=0,
                     max_output_tokens=100,
@@ -108,6 +108,9 @@ class ChemicalStructureGenerator:
             )
             
             smiles = response.text.strip()
+            if smiles == 'not found':
+                print('化合物が見つかりませんでした。')
+                return None
             return smiles
         except Exception as e:
             print(f"Gemini APIエラー: {e}")

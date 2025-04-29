@@ -32,7 +32,13 @@ def main(page: ft.Page):
     pick_files_dialog = ft.FilePicker(on_result=lambda e: pick_files_result(e))
     page.overlay.append(pick_files_dialog) # FilePickerをページに追加
 
-    output_smiles = ft.Text("SMILES: ")
+    output_smiles = ft.TextField(
+        label="SMILES",
+        value="",
+        read_only=True,
+        expand=True,
+        border="underline",  # デザイン調整（任意）
+    )
     structure_image = ft.Image(
         # src="path/to/placeholder.png", # 初期画像やプレースホルダー
         width=300,
@@ -88,7 +94,7 @@ def main(page: ft.Page):
 
         # UIをリセット
         status_text.value = "処理中..."
-        output_smiles.value = "SMILES: "
+        output_smiles.value = ""
         structure_image.src_base64 = None # Base64を使う場合
         structure_image.visible = False
         page.update()
@@ -130,7 +136,7 @@ def main(page: ft.Page):
                 smiles = generator.generate_smiles_from_image(path)
 
             if smiles and smiles != 'not found':
-                output_smiles.value = f"SMILES: {smiles}"
+                output_smiles.value = smiles 
                 status_text.value = "構造式画像を生成中..."
                 page.update()
 
